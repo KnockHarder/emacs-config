@@ -6,9 +6,26 @@
  '(company-dabbrev-downcase nil)
  '(company-show-numbers ''left)
  '(delete-by-moving-to-trash t)
+ '(tab-always-indent 'complete)
  '(package-selected-packages
-   '(kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
- '(tab-always-indent 'complete))
+   '(company-statistics
+     kotlin-mode
+     yaml-mode
+     json-mode
+     dot-mode
+     posframe
+     pdf-tools
+     rime
+     use-package
+     edit-indirect
+     protobuf-mode
+     plantuml-mode
+     magit
+     pyim-wbdict
+     pyim
+     markdown-mode
+     exec-path-from-shell
+     company)))
 
 ;; pacakge management
 (require 'package)
@@ -31,18 +48,19 @@
 (put 'narrow-to-region 'disabled nil)
 (put 'scroll-left 'disabled nil)
 
-
 ;; company
 (use-package company
-  :custom
-  (fido-mode t)
-  :hook (company-mode . (lambda()
-			  (define-key icomplete-fido-mode-map (kbd "C-r") nil)
-			  (define-key icomplete-fido-mode-map (kbd "C-s") nil)))
+  :init
+  (add-hook 'after-init-hook 'global-company-mode)
+  (add-hook 'after-init-hook 'company-statistics-mode)
   :config
-  (add-to-list 'company-backends 'company-ispell t))
-(setq global-company-mode t)
-
+  (add-to-list 'completion-styles 'flex)
+  (add-to-list 'company-backends
+	       '(company-capf
+		 company-dabbrev-code
+		 company-dabbrev-code
+		 company-ispell)))
+ 
 ;; spell
 (use-package ispell
   :custom
