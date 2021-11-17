@@ -9,3 +9,18 @@
 
 # Undo-tree save-files
 *.~undo-tree
+
+
+/.emacs.desktop
+/.emacs.desktop.lock
+/bookmarks
+/elpa/
+/history
+/image-dired/
+/librime/
+/manual-headers/
+/plantuml.jar
+/pyim/
+/rime/
+/transient/
+/url/
