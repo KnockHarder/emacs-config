@@ -8,7 +8,8 @@
  '(delete-by-moving-to-trash t)
  '(tab-always-indent 'complete)
  '(package-selected-packages
-   '(company-statistics
+   '(ivy
+     company-statistics
      kotlin-mode
      yaml-mode
      json-mode
@@ -59,8 +60,15 @@
 	       '(company-capf
 		 company-dabbrev-code
 		 company-dabbrev-code
-		 company-ispell)))
- 
+		 company-ispell))
+  :custom-face
+  (copmany-tooltip-selection ((t (:background "LightBlue1")))))
+(use-package ivy
+  :init
+  (add-hook 'after-init-hook 'ivy-mode)
+  :custom-face
+  (ivy-minibuffer-match-face-2 ((t (:weight bold :background "plum1")))))
+
 ;; spell
 (use-package ispell
   :custom
