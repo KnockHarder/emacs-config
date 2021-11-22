@@ -14,7 +14,9 @@
   (electric-indent-mode -1)
   (modify-syntax-entry ?: "<" plantuml-mode-syntax-table)
   :hook
-  (plantuml-mode . set-plantuml-default-comment))
+  (plantuml-mode . set-plantuml-default-comment)
+  :bind (:map plantuml-mode-map
+	      ("C-c p" . plantuml-preview-buffer)))
 
 ;; pdf-mode
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))

@@ -86,4 +86,5 @@
 ;; others
 (custom-set-variables
  '(delete-by-moving-to-trash t)
- '(tab-always-indent 'complete))
+ '(tab-always-indent 'complete)
+ '(next-line-add-newlines t))
