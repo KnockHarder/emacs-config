@@ -4,10 +4,17 @@
   :init
   (setq plantuml-jar-path (expand-file-name "plantuml.jar" user-emacs-directory))
   (setq plantuml-default-exec-mode 'jar)
+  (defun set-plantuml-default-comment()
+    (setq comment-start ": ")
+    (setq comment-start-skip ": ")
+    (setq comment-end ""))
   :custom
   (plantuml-indent-level 2)
   :config
-  (electric-indent-mode -1))
+  (electric-indent-mode -1)
+  (modify-syntax-entry ?: "<" plantuml-mode-syntax-table)
+  :hook
+  (plantuml-mode . set-plantuml-default-comment))
 
 ;; pdf-mode
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))

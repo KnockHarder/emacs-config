@@ -1,14 +1,5 @@
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-dabbrev-downcase nil)
- '(company-show-numbers ''left)
- '(delete-by-moving-to-trash t)
- '(tab-always-indent 'complete)
- '(package-selected-packages
-   '(ivy
+;; pacakge management
+(defvar-local my-packages '(ivy
      company-statistics
      kotlin-mode
      yaml-mode
@@ -26,9 +17,9 @@
      pyim
      markdown-mode
      exec-path-from-shell
-     company)))
-
-;; pacakge management
+     company))
+(custom-set-variables
+ '(package-selected-packages my-packages))
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 ;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
@@ -50,6 +41,9 @@
 (put 'scroll-left 'disabled nil)
 
 ;; company
+(custom-set-variables
+ '(company-dabbrev-downcase nil)
+ '(company-show-numbers 'left))
 (use-package company
   :init
   (add-hook 'after-init-hook 'global-company-mode)
@@ -62,7 +56,7 @@
 		 company-dabbrev-code
 		 company-ispell))
   :custom-face
-  (copmany-tooltip-selection ((t (:background "LightBlue1")))))
+  (company-tooltip-selection ((t (:background "LightBlue1")))))
 (use-package ivy
   :init
   (add-hook 'after-init-hook 'ivy-mode)
@@ -82,3 +76,8 @@
 (require 'my-coding-modes)
 (require 'my-doc-modes)
 (require 'my-input-methods)
+
+;; others
+(custom-set-variables
+ '(delete-by-moving-to-trash t)
+ '(tab-always-indent 'complete))

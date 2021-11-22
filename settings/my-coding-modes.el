@@ -25,3 +25,8 @@
 
 ;; end
 (provide 'my-coding-modes)
+
+;; sql
+(use-package sql
+  :custom
+  (sql-mysql-program "/usr/local/opt/mysql-client/bin/mysql"))
