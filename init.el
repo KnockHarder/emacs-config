@@ -43,7 +43,8 @@
 ;; company
 (custom-set-variables
  '(company-dabbrev-downcase nil)
- '(company-show-numbers 'left))
+ '(company-show-numbers 'left)
+ '(company-idle-delay 0))
 (use-package company
   :init
   (add-hook 'after-init-hook 'global-company-mode)
@@ -76,6 +77,11 @@
 (require 'my-coding-modes)
 (require 'my-doc-modes)
 (require 'my-input-methods)
+;; some local config
+(defvar my-local-setting-file
+  (expand-file-name "ignore.el" user-emacs-directory))
+(when (file-exists-p my-local-setting-file)
+  (load-file my-local-setting-file))
 
 ;; others
 (custom-set-variables
