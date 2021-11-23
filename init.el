@@ -18,8 +18,6 @@
      markdown-mode
      exec-path-from-shell
      company))
-(custom-set-variables
- '(package-selected-packages my-packages))
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 ;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
@@ -41,10 +39,6 @@
 (put 'scroll-left 'disabled nil)
 
 ;; company
-(custom-set-variables
- '(company-dabbrev-downcase nil)
- '(company-show-numbers 'left)
- '(company-idle-delay 0))
 (use-package company
   :init
   (add-hook 'after-init-hook 'global-company-mode)
@@ -83,9 +77,3 @@
   (expand-file-name "ignore.el" user-emacs-directory))
 (when (file-exists-p my-local-setting-file)
   (load-file my-local-setting-file))
-
-;; others
-(custom-set-variables
- '(delete-by-moving-to-trash t)
- '(tab-always-indent 'complete)
- '(next-line-add-newlines t))
