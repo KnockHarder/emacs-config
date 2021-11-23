@@ -70,9 +70,10 @@
   (ispell-local-dictionary "en_US"))
 
 ;; loading config files
-(defvar my-settings-dir
-  (expand-file-name "settings" user-emacs-directory))
-(add-to-list 'load-path my-settings-dir)
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(defvar my-lisp-dir
+  (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'load-path my-lisp-dir)
 (require 'my-apperances)
 (require 'my-coding-modes)
 (require 'my-doc-modes)
