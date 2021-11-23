@@ -65,6 +65,7 @@
 
 ;; loading config files
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load-file custom-file)
 (defvar my-lisp-dir
   (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path my-lisp-dir)

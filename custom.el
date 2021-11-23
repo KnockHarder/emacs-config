@@ -31,4 +31,5 @@
  '(magit-diff-removed-highlight-face ((t (:foreground "#aa2222" :background "#ffdddd" :extend t))))
  '(mode-line ((t (:background "gray91" :foreground "black" :box (:line-width -1 :style released-button)))))
  '(rime-default-face ((t (:background "gray100" :foreground "#333333"))))
- '(show-paren-match-face ((t (:box (:line-width 2 :color "turquoise4" :style pressed-button) :background "CadetBlue2")))))
+ '(show-paren-match ((t (:background "CadetBlue2" :box (:line-width 2 :color "turquoise" :style pressed-button))))))
+
