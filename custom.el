@@ -3,14 +3,24 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-backends
+   '(company-capf
+     (company-dabbrev-code company-etags company-keywords)
+     company-semantic company-files company-gtags
+     (company-dabbrev company-ispell)))
  '(company-dabbrev-downcase nil)
  '(company-idle-delay 0)
+ '(company-occurrence-weight-function 'company-occurrence-prefer-any-closest)
  '(company-show-numbers 'left)
+ '(completion-styles '(flex basic partial-completion emacs22))
  '(default-frame-alist '((font . "Menlo-14") (fullscreen . maximized)))
  '(delete-by-moving-to-trash t)
+ '(dired-dwim-target t)
  '(display-line-numbers 'relative)
+ '(ispell-local-dictionary "en_US")
  '(next-line-add-newlines t)
- '(package-selected-packages my-packages)
+ '(package-selected-packages
+   '(lsp-java ivy company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
  '(safe-local-variable-values
    '((eval progn
 	   (activate-rime)

@@ -1,23 +1,4 @@
 ;; pacakge management
-(defvar-local my-packages '(ivy
-     company-statistics
-     kotlin-mode
-     yaml-mode
-     json-mode
-     dot-mode
-     posframe
-     pdf-tools
-     rime
-     use-package
-     edit-indirect
-     protobuf-mode
-     plantuml-mode
-     magit
-     pyim-wbdict
-     pyim
-     markdown-mode
-     exec-path-from-shell
-     company))
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 ;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
@@ -42,26 +23,10 @@
 (use-package company
   :init
   (add-hook 'after-init-hook 'global-company-mode)
-  (add-hook 'after-init-hook 'company-statistics-mode)
-  :config
-  (add-to-list 'completion-styles 'flex)
-  (add-to-list 'company-backends
-	       '(company-capf
-		 company-dabbrev-code
-		 company-dabbrev-code
-		 company-ispell))
-  :custom-face
-  (company-tooltip-selection ((t (:background "LightBlue1")))))
+  (add-hook 'after-init-hook 'company-statistics-mode))
 (use-package ivy
   :init
-  (add-hook 'after-init-hook 'ivy-mode)
-  :custom-face
-  (ivy-minibuffer-match-face-2 ((t (:weight bold :background "plum1")))))
-
-;; spell
-(use-package ispell
-  :custom
-  (ispell-local-dictionary "en_US"))
+  (add-hook 'after-init-hook 'ivy-mode))
 
 ;; loading config files
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
