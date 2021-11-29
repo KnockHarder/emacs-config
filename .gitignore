@@ -26,3 +26,8 @@
 /url/
 /company-statistics-cache.el
 /ignore.el
+/.cache/
+/.lsp-session-v1
+/eclipse.jdt.ls/
+/workspace/
+/.dap-breakpoints

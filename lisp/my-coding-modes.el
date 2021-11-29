@@ -31,7 +31,8 @@
 ;; java
 (use-package lsp-java
   :init
-  (add-hook 'java-mode-hook #'lsp))
+  (add-hook 'java-mode-hook #'lsp)
+  (setq read-process-output-max (* 1024 1024)))
 (use-package projectile)
 (use-package flycheck)
 (use-package yasnippet :config (yas-global-mode))
@@ -56,6 +57,15 @@
 (use-package helm
   :config (helm-mode))
 (use-package lsp-treemacs)
+
+;; protobuf
+(use-package protobuf-mode
+  :init
+  (defconst my-protobuf-style
+    '((c-basic-offset . 4)
+      (indent-tabs-mode . nil)))
+  (add-hook 'protobuf-mode-hook
+			(lambda () (c-add-style "my-style" my-protobuf-style t))))
 
 ;; end
 (provide 'my-coding-modes)
