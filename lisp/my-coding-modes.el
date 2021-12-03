@@ -38,9 +38,9 @@
   :bind ("C-c C-f" . project-find-file))
 (use-package kotlin-mode
   :init
-  (add-to-list 'exec-path (expand-file-name ".cache/lsp/kotlin/server/bin" user-emacs-directory))
-  (add-hook 'kotlin-mode-hook #'lsp)
-  (setq read-process-output-max (* 100 1024 1024)))
+  (add-to-list 'exec-path (expand-file-name ".cache/lsp/kotlin/server/bin" user-emacs-directory)))
+  ;; (add-hook 'kotlin-mode-hook #'lsp)
+  ;; (setq read-process-output-max (* 100 1024 1024)))
 (use-package projectile)
 (use-package flycheck)
 (use-package yasnippet :config (yas-global-mode))
