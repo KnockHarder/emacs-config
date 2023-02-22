@@ -1,6 +1,21 @@
 ;; common
 (add-hook 'prog-mode-hook 'show-paren-mode)
 (add-hook 'prog-mode-hook 'electric-pair-mode)
+(use-package lsp-mode
+  :hook
+  ((lsp-mode . lsp-enable-which-key-integration))
+  :bind (:map lsp-mode-map
+              ("s-s" . yas-insert-snippet)
+              :prefix "s-l s"
+              :prefix-map show
+              ("s" . lsp-treemacs-symbols)
+              :prefix "s-l i"
+              :prefix-map inflection
+              ("c" . string-inflection-lower-camelcase)
+              ("u" . string-inflection-underscore)
+              ("," . string-inflection-camelcase)
+              )
+  )
 
 ;; magit
 (use-package magit
@@ -31,35 +46,22 @@
 ;; java
 (use-package lsp-java
   :init
-  (add-hook 'java-mode-hook #'lsp)
+  ;; (add-hook 'java-mode-hook #'lsp)
   (setq read-process-output-max (* 100 1024 1024))
-  :custom
-  (indent-tabs-mode nil)
-  :bind ("C-c C-f" . project-find-file))
-(use-package kotlin-mode
-  :init
-  (add-to-list 'exec-path (expand-file-name ".cache/lsp/kotlin/server/bin" user-emacs-directory)))
-  ;; (add-hook 'kotlin-mode-hook #'lsp)
-  ;; (setq read-process-output-max (* 100 1024 1024)))
-(use-package projectile)
-(use-package flycheck)
-(use-package yasnippet :config (yas-global-mode))
-(use-package lsp-mode
-  :hook
-  ((lsp-mode . lsp-enable-which-key-integration))
   :custom
   (lsp-java-format-settings-url
    (lsp--path-to-uri
     (expand-file-name "config/my-eclipse-java-style.xml" user-emacs-directory)))
   (lsp-java-format-settings-profile "like-idea")
   (dap-register-debug-template
-  "Java Attach"
-  (list :name "Java Attach"
-        :type "java"
-        :request "attach"
-        :hostName nil
-        :port nil))
-  :bind (:map lsp-mode-map
+   "Java Attach"
+   (list :name "Java Attach"
+         :type "java"
+         :request "attach"
+         :hostName nil
+         :port nil))
+  (indent-tabs-mode nil)
+  :bind (:map java-mode-map
               ("s-s" . yas-insert-snippet)
               :prefix "s-l s"
               :prefix-map show/statement
@@ -78,7 +80,17 @@
               ("," . string-inflection-camelcase)
               :prefix "s-l s-i"
               :prefix-map import
-              ("s" . lsp-java-convert-to-static-import)))
+              ("s" . lsp-java-convert-to-static-import)
+	      )
+  )
+(use-package kotlin-mode
+  :init
+  (add-to-list 'exec-path (expand-file-name ".cache/lsp/kotlin/server/bin" user-emacs-directory)))
+;; (add-hook 'kotlin-mode-hook #'lsp)
+;; (setq read-process-output-max (* 100 1024 1024)))
+(use-package projectile)
+(use-package flycheck)
+(use-package yasnippet :config (yas-global-mode))
 (use-package hydra)
 (use-package lsp-ui)
 (use-package which-key
@@ -111,6 +123,24 @@
               :prefix-map inflection
               ("c" . string-inflection-camelcase)
               ("u" . string-inflection-underscore)))
+
+;; dart
+(use-package lsp-dart
+  :init
+  (setq lsp-dart-sdk-dir "/Users/wangzhiqiang/repo/flutter/bin/cache/dart-sdk")
+  (setq package-selected-packages
+        '(dart-mode lsp-mode lsp-dart lsp-treemacs flycheck company
+                    ;; Optional packages
+                    lsp-ui company hover))
+  (when (cl-find-if-not #'package-installed-p package-selected-packages)
+    (package-refresh-contents)
+    (mapc #'package-install package-selected-packages))
+  (add-hook 'dart-mode-hook 'lsp)
+  (setq gc-cons-threshold (* 100 1024 1024)
+        read-process-output-max (* 1024 1024))
+  :custom
+  (lsp-dart-dap-flutter-hot-reload-on-save 't)
+  )
 
 ;; end
 (provide 'my-coding-modes)

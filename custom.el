@@ -45,7 +45,7 @@
    ["-noverify" "-Xmx4g" "-XX:+UseG1GC" "-XX:+UseStringDeduplication"])
  '(next-line-add-newlines t)
  '(package-selected-packages
-   '(smart-mode-line yasnippet-snippets string-inflection helm helm-lsp which-key lsp-ui yasnippet flycheck projectile lsp-java ivy company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
+   '(lsp-dart smart-mode-line yasnippet-snippets string-inflection helm helm-lsp which-key lsp-ui yasnippet flycheck projectile lsp-java ivy company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
  '(safe-local-variable-values
    '((eval progn
            (activate-rime)
@@ -64,7 +64,7 @@
  '(diff-refine-changed ((t (:background "#ffff55" :box (:line-width 1 :color "grey75" :style pressed-button)))))
  '(ivy-minibuffer-match-face-2 ((t (:weight bold :background "plum1"))))
  '(lsp-ui-doc-background ((t (:background "gray90"))))
- '(magit-diff-removed-highlight-face ((t (:foreground "#aa2222" :background "#ffdddd" :extend t))))
+ '(magit-diff-removed-highlight-face ((t (:foreground "#aa2222" :background "#ffdddd" :extend t))) t)
  '(mode-line ((t (:background "gray91" :foreground "black" :box (:line-width -1 :style released-button)))))
  '(rime-default-face ((t (:background "gray100" :foreground "#333333"))))
  '(show-paren-match ((t (:background "CadetBlue2" :box (:line-width 2 :color "turquoise" :style pressed-button))))))
