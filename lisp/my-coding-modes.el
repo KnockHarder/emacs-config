@@ -3,7 +3,9 @@
 (add-hook 'prog-mode-hook 'electric-pair-mode)
 (use-package lsp-mode
   :hook
-  ((lsp-mode . lsp-enable-which-key-integration))
+  ((python-mode . lsp)
+   (lsp-mode . lsp-enable-which-key-integration)
+   )
   :bind (:map lsp-mode-map
               ("s-s" . yas-insert-snippet)
               :prefix "s-l s"
@@ -15,6 +17,7 @@
               ("u" . string-inflection-underscore)
               ("," . string-inflection-camelcase)
               )
+  :commands lsp
   )
 
 ;; magit

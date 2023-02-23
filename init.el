@@ -38,6 +38,7 @@
 (require 'my-coding-modes)
 (require 'my-doc-modes)
 (require 'my-input-methods)
+(require 'my-eaf)
 ;; some local config
 (defvar my-local-setting-file
   (expand-file-name "ignore.el" user-emacs-directory))

@@ -45,7 +45,8 @@
    ["-noverify" "-Xmx4g" "-XX:+UseG1GC" "-XX:+UseStringDeduplication"])
  '(next-line-add-newlines t)
  '(package-selected-packages
-   '(lsp-dart smart-mode-line yasnippet-snippets string-inflection helm helm-lsp which-key lsp-ui yasnippet flycheck projectile lsp-java ivy company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
+   '(eaf dart-mode lsp-mode lsp-treemacs hover lsp-dart smart-mode-line yasnippet-snippets string-inflection helm helm-lsp which-key lsp-ui yasnippet flycheck projectile lsp-java ivy company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company)
+   )
  '(safe-local-variable-values
    '((eval progn
            (activate-rime)

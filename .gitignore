@@ -34,3 +34,5 @@
 /lombok.jar
 .DS_Store
 /projects
+/eaf/
+/site-lisp/
