@@ -3,7 +3,9 @@
 (add-hook 'prog-mode-hook 'electric-pair-mode)
 (use-package lsp-mode
   :hook
-  ((python-mode . lsp)
+  (
+   (python-mode . lsp)
+   (javascript-mode . lsp)
    (lsp-mode . lsp-enable-which-key-integration)
    )
   :bind (:map lsp-mode-map
@@ -36,6 +38,22 @@
   :custom
   (comint-use-prompt-regexp 't)
   (comint-use-prompt-regexp ">>>"))
+
+(use-package lsp-jedi
+  :ensure t)
+
+(use-package pyenv-mode
+  :config
+  (setq exec-path (append exec-path '("~/.pyenv/bin")))
+  )
+
+(use-package pipenv
+  :hook (python-mode . pipenv-mode)
+  :init
+  (setq
+   pipenv-projectile-after-switch-function
+   #'pipenv-projectile-after-switch-extended)
+  )
 
 ;; protobuf
 (use-package protobuf-mode
@@ -130,11 +148,7 @@
 ;; dart
 (use-package lsp-dart
   :init
-  (setq lsp-dart-sdk-dir "/Users/wangzhiqiang/repo/flutter/bin/cache/dart-sdk")
-  (setq package-selected-packages
-        '(dart-mode lsp-mode lsp-dart lsp-treemacs flycheck company
-                    ;; Optional packages
-                    lsp-ui company hover))
+  (setq lsp-dart-sdk-dir "~/repo/flutter/bin/cache/dart-sdk")
   (when (cl-find-if-not #'package-installed-p package-selected-packages)
     (package-refresh-contents)
     (mapc #'package-install package-selected-packages))
@@ -143,6 +157,14 @@
         read-process-output-max (* 1024 1024))
   :custom
   (lsp-dart-dap-flutter-hot-reload-on-save 't)
+  )
+
+;; electric
+(use-package electric
+  :hook ((python-mode . electric-indent-mode)
+         (dart-mode . electric-indent-mode)
+         (javascript-mode . electric-indent-mode)
+         )
   )
 
 ;; end
