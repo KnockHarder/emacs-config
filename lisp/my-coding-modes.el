@@ -24,6 +24,9 @@
 
 ;; magit
 (use-package magit
+  :ensure t
+  :bind (("C-x g" . magit-status)
+         )
   :custom
   (magit-diff-refine-hunk 'all)
   :custom-face
@@ -149,9 +152,6 @@
 (use-package lsp-dart
   :init
   (setq lsp-dart-sdk-dir "~/repo/flutter/bin/cache/dart-sdk")
-  (when (cl-find-if-not #'package-installed-p package-selected-packages)
-    (package-refresh-contents)
-    (mapc #'package-install package-selected-packages))
   (add-hook 'dart-mode-hook 'lsp)
   (setq gc-cons-threshold (* 100 1024 1024)
         read-process-output-max (* 1024 1024))

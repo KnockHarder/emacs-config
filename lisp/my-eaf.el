@@ -22,5 +22,8 @@
   :requires eaf
   )
 
+(require 'eaf-browser)
+(require 'eaf-pdf-viewer)
+
 ;; end
 (provide 'my-eaf)

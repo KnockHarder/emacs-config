@@ -45,8 +45,10 @@
    ["-noverify" "-Xmx4g" "-XX:+UseG1GC" "-XX:+UseStringDeduplication"])
  '(next-line-add-newlines t)
  '(package-selected-packages
- '(pipenv pyenv-mode lsp-jedi dart-mode lsp-mode lsp-treemacs hover lsp-dart smart-mode-line yasnippet-snippets string-inflection helm helm-lsp which-key lsp-ui yasnippet flycheck projectile lsp-java ivy company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company)
--   )
+   '(eaf-pdf-viewer eaf-browser eaf pipenv pyenv-mode lsp-jedi dart-mode lsp-mode lsp-treemacs hover lsp-dart smart-mode-line yasnippet-snippets string-inflection helm helm-lsp which-key lsp-ui yasnippet flycheck projectile lsp-java ivy company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
+ '(python-shell-interpreter "pipenv")
+ '(python-shell-interpreter-args "run python3 -i")
+ '(python-shell-interpreter-interactive-arg "run python3 -i")
  '(safe-local-variable-values
    '((eval progn
            (activate-rime)
