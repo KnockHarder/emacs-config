@@ -3,16 +3,20 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-async-redisplay-delay 1)
  '(company-backends
-   '(company-capf
-     (company-dabbrev-code company-etags company-keywords)
-     company-semantic company-files company-gtags
-     (company-dabbrev company-ispell)))
+   '(company-tabnine company-capf
+                     (company-dabbrev-code company-etags company-keywords)
+                     company-semantic company-files
+                     (company-dabbrev company-ispell)))
  '(company-dabbrev-downcase nil)
- '(company-idle-delay 0)
- '(company-minimum-prefix-length 1000)
+ '(company-idle-delay 0.2)
+ '(company-minimum-prefix-length 2)
  '(company-occurrence-weight-function 'company-occurrence-prefer-any-closest)
+ '(company-require-match nil)
+ '(company-search-regexp-function 'company-search-flex-regexp)
  '(company-show-quick-access 'left)
+ '(company-tooltip-minimum-width 10)
  '(completion-styles '(flex basic partial-completion emacs22))
  '(custom-safe-themes
    '("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default))
@@ -43,9 +47,10 @@
  '(lsp-ui-sideline-show-code-actions nil)
  '(lsp-xml-server-vmargs
    ["-noverify" "-Xmx4g" "-XX:+UseG1GC" "-XX:+UseStringDeduplication"])
+ '(markdown-split-window-direction 'below)
  '(next-line-add-newlines t)
  '(package-selected-packages
-   '(eaf-pdf-viewer eaf-browser eaf pipenv pyenv-mode lsp-jedi dart-mode lsp-mode lsp-treemacs hover lsp-dart smart-mode-line yasnippet-snippets string-inflection helm helm-lsp which-key lsp-ui yasnippet flycheck projectile lsp-java ivy company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
+   '(google-translate company-tabnine impatient-mode xml-format eaf-pdf-viewer eaf-browser eaf pipenv pyenv-mode lsp-jedi dart-mode lsp-mode lsp-treemacs hover lsp-dart smart-mode-line yasnippet-snippets string-inflection helm helm-lsp which-key lsp-ui yasnippet flycheck projectile lsp-java ivy company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
  '(python-shell-interpreter "pipenv")
  '(python-shell-interpreter-args "run python3 -i")
  '(python-shell-interpreter-interactive-arg "run python3 -i")
@@ -57,7 +62,8 @@
            (activate-rime))))
  '(scroll-bar-mode nil)
  '(tab-always-indent 'complete)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(vc-follow-symlinks nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

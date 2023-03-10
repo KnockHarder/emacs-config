@@ -164,6 +164,7 @@
   :hook ((python-mode . electric-indent-mode)
          (dart-mode . electric-indent-mode)
          (javascript-mode . electric-indent-mode)
+         (emacs-lisp-mode . electric-indent-mode)
          )
   )
 

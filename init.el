@@ -23,7 +23,14 @@
 (use-package company
   :init
   (add-hook 'after-init-hook 'global-company-mode)
-  (add-hook 'after-init-hook 'company-statistics-mode))
+  (add-hook 'after-init-hook 'company-statistics-mode)
+  :bind
+  ("M-/" . #'company-other-backend)
+  :config
+  (use-package company-tabnine))
+(use-package company-tabnine
+  :ensure t
+  )
 (use-package ivy
   :init
   (add-hook 'after-init-hook 'ivy-mode))
@@ -44,3 +51,4 @@
   (expand-file-name "ignore.el" user-emacs-directory))
 (when (file-exists-p my-local-setting-file)
   (load-file my-local-setting-file))
+(put 'downcase-region 'disabled nil)

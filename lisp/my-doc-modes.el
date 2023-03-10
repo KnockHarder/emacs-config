@@ -8,6 +8,10 @@
     (setq comment-start ": ")
     (setq comment-start-skip ": ")
     (setq comment-end ""))
+  (add-hook 'plantuml-mode-hook
+            (lambda ()
+              (setq plantuml-output-type "png"))
+            )
   :custom
   (plantuml-indent-level 2)
   :config
@@ -24,7 +28,41 @@
 ;; markdown mode
 (use-package markdown-mode
   :config
-  (add-to-list 'markdown-code-lang-modes '("protocol-buffer" . protobuf-mode)))
+  (pyenv-mode -1)
+  (add-to-list 'markdown-code-lang-modes '("protocol-buffer" . protobuf-mode))
+  )
+
+;; html
+(defun impatient-markdown-html ()
+  (interactive)
+  (imp-set-user-filter
+   (lambda (buffer)
+     (princ (with-current-buffer buffer
+              (format
+               "<!DOCTYPE html>\
+<html>\
+<title>Impatient Markdown</title>\
+<xmp theme=\"united\" style=\"display:none;\"> %s  </xmp>\
+<script src=\"https://cdn.jsdelivr.net/gh/Naereen/StrapDown.js@master/strapdown.min.js\"></script>\
+</html>" (buffer-substring-no-properties (point-min) (point-max)))
+              )
+            (current-buffer)
+            )
+     )
+   )
+  )
+
+(defvar impatient-mode-home (expand-file-name "impatient-mode" user-emacs-directory))
+(use-package impatient-mode
+  :load-path impatient-mode-home
+  :init
+  (add-hook 'markdown-mode-hook
+            (lambda ()
+              (impatient-mode)
+              (imp-set-user-filter 'markdown-html)
+              )
+            )
+  )
 
 ;; end
 (provide 'my-doc-modes)
