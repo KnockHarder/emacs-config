@@ -144,9 +144,6 @@
   (dap-auto-configure-mode))
 (use-package dap-java
   :ensure nil)
-(use-package helm-lsp)
-(use-package helm
-  :config (helm-mode))
 (use-package lsp-treemacs
   :config
   (lsp-treemacs-sync-mode))
