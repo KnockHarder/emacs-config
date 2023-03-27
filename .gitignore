@@ -39,3 +39,5 @@
 /anaconda-mode/
 /elpy/
 /tramp
+*.stderr
+*.stdout

@@ -5,10 +5,10 @@
  ;; If there is more than one, they won't work right.
  '(company-async-redisplay-delay 1)
  '(company-backends
-   '(company-tabnine company-capf
-                     (company-dabbrev-code company-etags company-keywords)
-                     company-semantic company-files
-                     (company-dabbrev company-ispell)))
+   '((company-tabnine company-capf)
+     (company-dabbrev-code company-etags company-keywords)
+     company-semantic company-files
+     (company-dabbrev company-ispell)))
  '(company-dabbrev-downcase nil)
  '(company-idle-delay 0.2)
  '(company-minimum-prefix-length 2)
@@ -17,13 +17,13 @@
  '(company-search-regexp-function 'company-search-flex-regexp)
  '(company-show-quick-access 'left)
  '(company-tooltip-minimum-width 10)
- '(completion-styles '(flex basic partial-completion emacs22))
  '(custom-safe-themes
    '("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default))
  '(default-frame-alist '((font . "Menlo-14") (fullscreen . maximized)))
  '(delete-by-moving-to-trash t)
  '(desktop-save-mode t)
  '(dired-dwim-target t)
+ '(dired-listing-switches "-alh")
  '(display-line-numbers 'relative)
  '(gc-cons-threshold 1000000000)
  '(gnus-secondary-select-methods nil)
@@ -50,7 +50,7 @@
  '(markdown-split-window-direction 'below)
  '(next-line-add-newlines t)
  '(package-selected-packages
-   '(google-translate company-tabnine impatient-mode xml-format eaf-pdf-viewer eaf-browser eaf pipenv pyenv-mode lsp-jedi dart-mode lsp-mode lsp-treemacs hover lsp-dart smart-mode-line yasnippet-snippets string-inflection helm helm-lsp which-key lsp-ui yasnippet flycheck projectile lsp-java ivy company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
+   '(marginalia consult orderless vertico adoc-mode bash-completion google-translate company-tabnine impatient-mode xml-format eaf-pdf-viewer eaf-browser eaf pipenv pyenv-mode lsp-jedi dart-mode lsp-mode lsp-treemacs hover lsp-dart smart-mode-line yasnippet-snippets string-inflection helm helm-lsp which-key lsp-ui yasnippet flycheck projectile lsp-java company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
  '(python-shell-interpreter "pipenv")
  '(python-shell-interpreter-args "run python3 -i")
  '(python-shell-interpreter-interactive-arg "run python3 -i")

@@ -38,6 +38,11 @@
 ;; python
 (use-package python
   :interpreter ("python3" . python-mode)
+  :bind (:map python-mode-map
+              :prefix "C-c C-p"
+              :prefix-map pipenv
+              ("p" . run-python)
+              )
   :custom
   (comint-use-prompt-regexp 't)
   (comint-use-prompt-regexp ">>>"))
@@ -66,6 +71,18 @@
 (use-package sql
   :custom
   (sql-mysql-program "/usr/local/opt/mysql-client/bin/mysql"))
+
+;; json
+(use-package json-mode
+  :hook
+  (json-mode . hs-minor-mode)
+  (json-mode . electric-indent-mode)
+  :bind (:map hs-minor-mode-map
+              ("C-c -" . hs-hide-block)
+              ("C-c =" . hs-show-block)
+              ("C-c 0" . hs-show-all)
+              )
+  )
 
 ;; java
 (use-package lsp-java
