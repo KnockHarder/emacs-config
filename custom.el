@@ -49,8 +49,11 @@
    ["-noverify" "-Xmx4g" "-XX:+UseG1GC" "-XX:+UseStringDeduplication"])
  '(markdown-split-window-direction 'below)
  '(next-line-add-newlines t)
+ '(olivetti-body-width 120)
+ '(org-image-actual-width nil)
+ '(org-return-follows-link t)
  '(package-selected-packages
-   '(marginalia consult orderless vertico adoc-mode bash-completion google-translate company-tabnine impatient-mode xml-format eaf-pdf-viewer eaf-browser eaf pipenv pyenv-mode lsp-jedi dart-mode lsp-mode lsp-treemacs hover lsp-dart smart-mode-line yasnippet-snippets string-inflection which-key lsp-ui yasnippet flycheck projectile lsp-java company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
+   '(company-box leuven-theme olivetti smartparens expand-region marginalia consult orderless vertico adoc-mode bash-completion google-translate company-tabnine impatient-mode xml-format eaf-pdf-viewer eaf-browser eaf pipenv pyenv-mode lsp-jedi dart-mode lsp-mode lsp-treemacs hover lsp-dart smart-mode-line yasnippet-snippets string-inflection which-key lsp-ui yasnippet flycheck projectile lsp-java company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
  '(python-shell-interpreter "pipenv")
  '(python-shell-interpreter-args "run python3 -i")
  '(python-shell-interpreter-interactive-arg "run python3 -i")
@@ -69,6 +72,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(comint-highlight-prompt ((t (:inherit nil :foreground "yellow4" :weight bold))))
  '(company-tooltip-selection ((t (:background "LightBlue1"))))
  '(diff-refine-changed ((t (:background "#ffff55" :box (:line-width 1 :color "grey75" :style pressed-button)))))
  '(ivy-minibuffer-match-face-2 ((t (:weight bold :background "plum1"))))

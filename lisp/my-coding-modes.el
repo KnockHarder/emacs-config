@@ -77,11 +77,10 @@
   :hook
   (json-mode . hs-minor-mode)
   (json-mode . electric-indent-mode)
-  :bind (:map hs-minor-mode-map
-              ("C-c -" . hs-hide-block)
-              ("C-c =" . hs-show-block)
-              ("C-c 0" . hs-show-all)
-              )
+  :bind
+  ("C-c -" . hs-hide-block)
+  ("C-c =" . hs-show-block)
+  ("C-c 0" . hs-show-all)
   )
 
 ;; java

@@ -12,7 +12,7 @@
   (exec-path-from-shell-initialize))
 (when (daemonp)
   (exec-path-from-shell-initialize))
-
+(lossage-size 10000)
 
 ;; session
 (savehist-mode 1)
@@ -83,6 +83,18 @@
   ;; The :init configuration is always executed (Not lazy!)
   :init
   (marginalia-mode))
+
+;; region
+(use-package expand-region
+  :bind ("C-=" . er/expand-region))
+
+;; parentheses
+(use-package smartparens)
+
+;; consult
+(use-package consult
+  :bind (("s-f" . consult-line)
+         ))
 
 ;; loading config files
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
