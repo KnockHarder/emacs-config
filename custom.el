@@ -50,10 +50,18 @@
  '(markdown-split-window-direction 'below)
  '(next-line-add-newlines t)
  '(olivetti-body-width 120)
+ '(org-agenda-custom-commands
+   '(("n" "Agenda and all TODOs"
+      ((agenda "" nil)
+       (todo ""
+             ((org-agenda-overriding-header "Unscheduled TODO")
+              (org-agenda-skip-function
+               '(org-agenda-skip-entry-if 'timestamp)))))
+      nil)))
  '(org-image-actual-width nil)
  '(org-return-follows-link t)
  '(package-selected-packages
-   '(company-box leuven-theme olivetti smartparens expand-region marginalia consult orderless vertico adoc-mode bash-completion google-translate company-tabnine impatient-mode xml-format eaf-pdf-viewer eaf-browser eaf pipenv pyenv-mode lsp-jedi dart-mode lsp-mode lsp-treemacs hover lsp-dart smart-mode-line yasnippet-snippets string-inflection which-key lsp-ui yasnippet flycheck projectile lsp-java company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
+   '(org-modern helpful company-box leuven-theme olivetti smartparens expand-region marginalia consult orderless vertico adoc-mode bash-completion google-translate company-tabnine impatient-mode xml-format eaf-pdf-viewer eaf-browser eaf pipenv pyenv-mode lsp-jedi dart-mode lsp-mode lsp-treemacs hover lsp-dart smart-mode-line yasnippet-snippets string-inflection which-key lsp-ui yasnippet flycheck projectile lsp-java company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
  '(python-shell-interpreter "pipenv")
  '(python-shell-interpreter-args "run python3 -i")
  '(python-shell-interpreter-interactive-arg "run python3 -i")

@@ -13,6 +13,7 @@
 (when (daemonp)
   (exec-path-from-shell-initialize))
 (lossage-size 10000)
+(recentf-mode 1)
 
 ;; session
 (savehist-mode 1)
@@ -93,8 +94,18 @@
 
 ;; consult
 (use-package consult
-  :bind (("s-f" . consult-line)
+  :bind (("C-x c s" . consult-line)
+         ("C-x c r" . consult-recent-file)
          ))
+
+;; help
+(use-package helpful
+  :bind (("C-h f" . helpful-callable)
+         ("C-h v" . helpful-variable)
+         ("C-h k" . helpful-key)
+         ("C-h x" . helpful-command)
+         )
+  )
 
 ;; loading config files
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -107,6 +118,7 @@
 (require 'my-doc-modes)
 (require 'my-input-methods)
 (require 'my-eaf)
+(require 'my-daily-life)
 ;; some local config
 (defvar my-local-setting-file
   (expand-file-name "ignore.el" user-emacs-directory))

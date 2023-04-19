@@ -64,5 +64,10 @@
             )
   )
 
+;; org-modern
+(use-package org-modern
+  :hook
+  (org-mode . org-modern-mode))
+
 ;; end
 (provide 'my-doc-modes)
