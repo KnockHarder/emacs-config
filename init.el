@@ -96,6 +96,7 @@
 (use-package consult
   :bind (("C-x c s" . consult-line)
          ("C-x c r" . consult-recent-file)
+         ("C-x c g" . consult-git-grep)
          ))
 
 ;; help

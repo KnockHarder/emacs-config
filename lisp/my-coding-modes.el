@@ -33,7 +33,8 @@
   (magit-diff-removed-highlight-face
    ((t (:foreground "#aa2222" :background "#ffdddd" :extend t))))
   :hook
-  (magit-process-mode . goto-address-mode))
+  (magit-process-mode . goto-address-mode)
+  (git-commit-mode . toggle-input-method))
 
 ;; python
 (use-package python
@@ -86,7 +87,7 @@
 ;; java
 (use-package lsp-java
   :init
-  ;; (add-hook 'java-mode-hook #'lsp)
+  (add-hook 'java-mode-hook #'lsp)
   (setq read-process-output-max (* 100 1024 1024))
   :custom
   (lsp-java-format-settings-url
