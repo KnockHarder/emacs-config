@@ -21,7 +21,6 @@
    '("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default))
  '(default-frame-alist '((font . "Menlo-14") (fullscreen . maximized)))
  '(delete-by-moving-to-trash t)
- '(desktop-save-mode t)
  '(dired-dwim-target t)
  '(dired-listing-switches "-alh")
  '(display-line-numbers 'relative)
