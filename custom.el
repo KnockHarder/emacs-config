@@ -27,6 +27,15 @@
  '(gc-cons-threshold 1000000000)
  '(gnus-secondary-select-methods nil)
  '(gnus-select-method '(nntp "news.gnus.org"))
+ '(ibuffer-formats
+   '((mark modified read-only locked " "
+           (name 40 40 :left :elide)
+           " "
+           (mode 16 16 :center :elide)
+           " " filename-and-process)
+     (mark " "
+           (name 16 -1)
+           " " filename)))
  '(ispell-local-dictionary "english")
  '(line-number-mode nil)
  '(lsp-completion-enable-additional-text-edit t)
@@ -50,7 +59,7 @@
  '(next-line-add-newlines t)
  '(olivetti-body-width 120)
  '(org-agenda-custom-commands
-   '(("n" "Agenda and all TODOs"
+   '(("a" "Agenda and all TODOs"
       ((agenda "" nil)
        (todo ""
              ((org-agenda-overriding-header "Unscheduled TODO")
@@ -59,8 +68,11 @@
       nil)))
  '(org-image-actual-width nil)
  '(org-return-follows-link t)
+ '(org-todo-keywords
+   '((sequence "TODO" "DOING" "DONE")
+     (sequence "BLOCK" "CANCEL")))
  '(package-selected-packages
-   '(org-modern helpful company-box leuven-theme olivetti smartparens expand-region marginalia consult orderless vertico adoc-mode bash-completion google-translate company-tabnine impatient-mode xml-format eaf-pdf-viewer eaf-browser eaf pipenv pyenv-mode lsp-jedi dart-mode lsp-mode lsp-treemacs hover lsp-dart smart-mode-line yasnippet-snippets string-inflection which-key lsp-ui yasnippet flycheck projectile lsp-java company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
+   '(all-the-icons-dired all-the-icons org-mobile-sync org-modern helpful company-box leuven-theme olivetti smartparens expand-region marginalia consult orderless vertico adoc-mode bash-completion google-translate company-tabnine impatient-mode xml-format eaf-pdf-viewer eaf-browser eaf pipenv pyenv-mode lsp-jedi dart-mode lsp-mode lsp-treemacs hover lsp-dart smart-mode-line yasnippet-snippets string-inflection which-key lsp-ui yasnippet flycheck projectile lsp-java company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
  '(python-shell-interpreter "pipenv")
  '(python-shell-interpreter-args "run python3 -i")
  '(python-shell-interpreter-interactive-arg "run python3 -i")

@@ -1,4 +1,5 @@
 (defvar eaf-dir (expand-file-name "site-lisp/emacs-application-framework" user-emacs-directory))
+
 (use-package eaf
   :load-path eaf-dir
   :config
@@ -11,7 +12,7 @@
   (eaf-browser-continue-where-left-off t)
   (eaf-browser-enable-adblocker t)
   :config
-  (eaf-bind-key nil "M-q" eaf-browser-keybinding)  
+  (eaf-bind-key bury-buffer "q" eaf-browser-keybinding)
   :requires eaf
   )
 

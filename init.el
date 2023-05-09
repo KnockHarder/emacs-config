@@ -17,7 +17,14 @@
 
 ;; session
 (savehist-mode 1)
-(add-hook 'server-after-make-frame-hook 'desktop-read)
+(if (not (daemonp))
+    (desktop-save-mode 1)
+  (defun restore-desktop (frame)
+    (with-selected-frame frame
+      (desktop-save-mode 1)
+      (desktop-read)
+      (remove-hook 'after-make-frame-functions 'restore-desktop)))
+  (add-hook 'after-make-frame-functions 'restore-desktop))
 
 ;; enabel features
 (put 'set-goal-column 'disabled nil)
@@ -97,6 +104,7 @@
   :bind (("C-x c s" . consult-line)
          ("C-x c r" . consult-recent-file)
          ("C-x c g" . consult-git-grep)
+         ("C-x b" . consult-buffer)
          ))
 
 ;; help
@@ -107,6 +115,13 @@
          ("C-h x" . helpful-command)
          )
   )
+
+;; ibuffer
+(use-package ibuffer
+  :bind
+  ("C-x C-b" . ibuffer)
+  :hook
+  (ibuffer-mode . olivetti-mode))
 
 ;; loading config files
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))

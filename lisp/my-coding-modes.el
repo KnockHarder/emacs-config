@@ -182,5 +182,9 @@
          )
   )
 
+;; code company
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
 ;; end
 (provide 'my-coding-modes)

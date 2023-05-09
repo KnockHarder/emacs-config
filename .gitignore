@@ -42,3 +42,4 @@
 *.stderr
 *.stdout
 /recentf
+/.org-id-locations
