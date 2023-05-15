@@ -34,7 +34,9 @@
    ((t (:foreground "#aa2222" :background "#ffdddd" :extend t))))
   :hook
   (magit-process-mode . goto-address-mode)
-  (git-commit-mode . toggle-input-method))
+  (git-commit-mode . toggle-input-method)
+  (magit-diff-mode . olivetti-mode)
+  )
 
 ;; python
 (use-package python

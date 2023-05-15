@@ -24,6 +24,7 @@
  '(dired-dwim-target t)
  '(dired-listing-switches "-alh")
  '(display-line-numbers 'relative)
+ '(eaf-pdf-dark-mode "ignore")
  '(gc-cons-threshold 1000000000)
  '(gnus-secondary-select-methods nil)
  '(gnus-select-method '(nntp "news.gnus.org"))
@@ -72,7 +73,7 @@
    '((sequence "TODO" "DOING" "DONE")
      (sequence "BLOCK" "CANCEL")))
  '(package-selected-packages
-   '(all-the-icons-dired all-the-icons org-mobile-sync org-modern helpful company-box leuven-theme olivetti smartparens expand-region marginalia consult orderless vertico adoc-mode bash-completion google-translate company-tabnine impatient-mode xml-format eaf-pdf-viewer eaf-browser eaf pipenv pyenv-mode lsp-jedi dart-mode lsp-mode lsp-treemacs hover lsp-dart smart-mode-line yasnippet-snippets string-inflection which-key lsp-ui yasnippet flycheck projectile lsp-java company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
+   '(origami nord-theme all-the-icons-dired all-the-icons org-mobile-sync org-modern helpful company-box leuven-theme olivetti smartparens expand-region marginalia consult orderless vertico adoc-mode bash-completion google-translate company-tabnine impatient-mode xml-format eaf-pdf-viewer eaf-browser eaf pipenv pyenv-mode lsp-jedi dart-mode lsp-mode lsp-treemacs hover lsp-dart smart-mode-line yasnippet-snippets string-inflection which-key lsp-ui yasnippet flycheck projectile lsp-java company-statistics kotlin-mode yaml-mode json-mode dot-mode posframe pdf-tools rime use-package edit-indirect protobuf-mode plantuml-mode magit pyim-wbdict pyim markdown-mode exec-path-from-shell company))
  '(python-shell-interpreter "pipenv")
  '(python-shell-interpreter-args "run python3 -i")
  '(python-shell-interpreter-interactive-arg "run python3 -i")
@@ -97,7 +98,6 @@
  '(ivy-minibuffer-match-face-2 ((t (:weight bold :background "plum1"))))
  '(lsp-ui-doc-background ((t (:background "gray90"))))
  '(magit-diff-removed-highlight-face ((t (:foreground "#aa2222" :background "#ffdddd" :extend t))) t)
- '(mode-line ((t (:background "gray91" :foreground "black" :box (:line-width -1 :style released-button)))))
  '(rime-default-face ((t (:background "gray100" :foreground "#333333"))))
  '(show-paren-match ((t (:background "CadetBlue2" :box (:line-width 2 :color "turquoise" :style pressed-button))))))
 
