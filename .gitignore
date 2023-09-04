@@ -43,3 +43,5 @@
 *.stdout
 /recentf
 /.org-id-locations
+\#*\#
+/ac-comphist.dat

@@ -36,6 +36,7 @@
   (magit-process-mode . goto-address-mode)
   (git-commit-mode . toggle-input-method)
   (magit-diff-mode . olivetti-mode)
+  (magit-status-mode . olivetti-mode)
   )
 
 ;; python
@@ -49,9 +50,6 @@
   :custom
   (comint-use-prompt-regexp 't)
   (comint-use-prompt-regexp ">>>"))
-
-(use-package lsp-jedi
-  :ensure t)
 
 (use-package pyenv-mode
   :config
@@ -89,7 +87,7 @@
 ;; java
 (use-package lsp-java
   :init
-  (add-hook 'java-mode-hook #'lsp)
+  ;; (add-hook 'java-mode-hook #'lsp)
   (setq read-process-output-max (* 100 1024 1024))
   :custom
   (lsp-java-format-settings-url

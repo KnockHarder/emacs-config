@@ -14,5 +14,18 @@
   :hook
   (dired-mode . all-the-icons-dired-mode))
 
+(use-package nord-theme
+  :custom
+  (diff-refine-added (
+                      (t (:foreground
+                          "#A3BE8C"
+                          :box
+                          (:line-width (2 . 2) :color "#A3BE8C" :style pressed-button)
+                          )
+                         )
+                      )
+                     )
+  )
+
 ;; end
 (provide 'my-apperances)
