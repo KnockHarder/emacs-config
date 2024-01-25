@@ -141,4 +141,5 @@
 (require 'my-input-methods)
 (require 'my-eaf)
 (require 'my-daily-life)
+(require 'my-gpt)
 (put 'downcase-region 'disabled nil)

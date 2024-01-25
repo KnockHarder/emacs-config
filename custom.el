@@ -3,6 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(backup-directory-alist '(("/bin/.*" . ".backups")))
  '(company-async-redisplay-delay 1)
  '(company-backends
    '((company-tabnine company-capf)
@@ -18,7 +19,7 @@
  '(company-show-quick-access 'left)
  '(company-tooltip-minimum-width 10)
  '(custom-safe-themes
-   '("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default))
+   '("46f5e010e0118cc5aaea1749cc6a15be4dfce27c0a195a0dff40684e2381cf87" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default))
  '(default-frame-alist '((font . "Menlo-14") (fullscreen . maximized)))
  '(delete-by-moving-to-trash t)
  '(dired-dwim-target t)
