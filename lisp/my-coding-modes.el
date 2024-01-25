@@ -39,6 +39,17 @@
   (magit-status-mode . olivetti-mode)
   )
 
+(if (getenv "OPENAI_KEY")
+    (use-package gpt-commit
+      :custom
+      (gpt-commit-model-name "gpt-3.5-turbo-16k")
+      :config
+      (setq gpt-commit-openai-key (getenv "OPENAI_KEY"))
+      (add-hook 'git-commit-setup-hook 'gpt-commit-message)
+      )
+  (message "Gpt Commit: Not setup OPENAI_KEY environment")
+  )
+
 ;; python
 (use-package python
   :interpreter ("python3" . python-mode)
@@ -50,6 +61,15 @@
   :custom
   (comint-use-prompt-regexp 't)
   (comint-use-prompt-regexp ">>>"))
+
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                         (require 'lsp-pyright)
+                         (lsp)
+                         )
+                     )
+  )
 
 (use-package pyenv-mode
   :config

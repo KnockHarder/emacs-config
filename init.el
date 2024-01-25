@@ -123,6 +123,12 @@
   :hook
   (ibuffer-mode . olivetti-mode))
 
+;; some local config
+(defvar my-local-setting-file
+  (expand-file-name "ignore.el" user-emacs-directory))
+(when (file-exists-p my-local-setting-file)
+  (load-file my-local-setting-file))
+
 ;; loading config files
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load-file custom-file)
@@ -135,9 +141,4 @@
 (require 'my-input-methods)
 (require 'my-eaf)
 (require 'my-daily-life)
-;; some local config
-(defvar my-local-setting-file
-  (expand-file-name "ignore.el" user-emacs-directory))
-(when (file-exists-p my-local-setting-file)
-  (load-file my-local-setting-file))
 (put 'downcase-region 'disabled nil)
