@@ -12,7 +12,6 @@
           (gpt-commit-model-name "gpt-3.5-turbo-16k")
           :config
           (setq gpt-commit-openai-key api-key)          
-          (add-hook 'git-commit-setup-hook 'gpt-commit-message)
           (defun gpt-commit-generate-message-zh (callback)
             (let* ((lines (magit-git-lines "diff" "--cached"))
                    (changes (string-join lines "\n"))
