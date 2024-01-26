@@ -31,6 +31,9 @@
 (put 'narrow-to-region 'disabled nil)
 (put 'scroll-left 'disabled nil)
 
+;; set global keys
+(global-set-key (kbd "s-k") 'kill-current-buffer)
+
 ;; company
 (use-package company
   :init

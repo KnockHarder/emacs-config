@@ -3,34 +3,39 @@
 
 ;; local gpt like service
 (require 'json)
-(setq local-gpt-server "127.0.0.1:8080")
 
-(let ((url (format "http://%s/v1/models" local-gpt-server)))
-  (with-current-buffer (url-retrieve-synchronously url)
-    (goto-char (point-min))
-    (if (search-forward-regexp "^$" nil t)
-        (let* ((status (url-http-symbol-value-in-buffer 'url-http-response-status (current-buffer)))
-               (data (buffer-substring-no-properties (point) (point-max))))
-          (if (= status 200) ; 检查是否成功
-              (let* ((root (json-read-from-string data))
-                     (models (cdr (assoc 'data root)))
-                     (ids (mapcar (lambda (m)
-                                    (cdr (assoc 'id m))) models))
-                     (id-not-found t))
-                (dolist (id '("gpt-4" "gpt-3.5-turbo"))
-                  (when (and id-not-found (member id ids))
-                    (setq my-gpt-server local-gpt-server)
-                    (setq my-gpt-model id)
-                    (setenv "OPENAI_KEY" "xxx")
-                    (setq id-not-found nil)
-                    )
-                  )
-                )
-            (message "My GPT: No avliable local GPT service. status: %d" status)
+(let* ((local-server "127.0.0.1")
+       (url (format "https://%s/v1/models" local-server)))
+  (request url
+    :parser 'json-read
+    :sync t
+    :success
+    (lambda (&rest args)
+      (let* ((data (getf args :data))
+             (models (cdr (assoc 'data data)))
+             (ids (mapcar (lambda (m)
+                            (cdr (assoc 'id m))) models))
+             (id-not-found t)
+             )
+        (dolist (id '("gpt-4" "gpt-3.5-turbo"))
+          (when (and id-not-found (member id ids))
+            (setq my-gpt-server local-server)
+            (setq my-gpt-model id)
+            (setenv "OPENAI_KEY" "xxx")
+            (setq id-not-found nil)
             )
           )
-      (message "Error: Unable to retrieve data from %s" url))))
-
+        )
+      )
+    :error
+    (lambda (&rest args)
+      (let ((error-thrown (getf args :error-thrown))
+            )
+        (message "My GPT: No avliable local GPT service. error: %S" error-thrown)
+        )
+      )
+    )
+  )    
 
 ;; set gpt packages if has OPENAI_KEY
 (let ((api-key (getenv "OPENAI_KEY")))
@@ -70,7 +75,7 @@
                    (json-string (json-serialize `((model . ,my-gpt-model)
                                                   (messages . ,messages))))
                    (payload (encode-coding-string json-string 'utf-8))
-                   (gpt-api (format "http://%s/v1/chat/completions" my-gpt-server))
+                   (gpt-api (format "https://%s/v1/chat/completions" my-gpt-server))
                    )
               (setq callback-holder callback)
               (request gpt-api
