@@ -18,7 +18,6 @@
   :custom
   (default-input-method "rime")
   (rime-show-candidate 'posframe)
-  (rime-librime-root (expand-file-name "librime/dist" user-emacs-directory))
   (rime-user-data-dir "~/Library/Rime")
   :custom-face
   (rime-default-face ((t (:background "gray100" :foreground "#333333")))))

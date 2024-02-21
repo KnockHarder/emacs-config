@@ -5,7 +5,8 @@
 (require 'json)
 
 (let* ((local-server "127.0.0.1")
-       (url (format "https://%s/v1/models" local-server)))
+       (url (format "https://%s/v1/models" local-server))
+       (local-key (getenv "LOCAL_GPT_KEY")))
   (request url
     :parser 'json-read
     :sync t
@@ -21,7 +22,7 @@
           (when (and id-not-found (member id ids))
             (setq my-gpt-server local-server)
             (setq my-gpt-model id)
-            (setenv "OPENAI_KEY" "xxx")
+            (setenv "OPENAI_KEY" local-key)
             (setq id-not-found nil)
             )
           )
